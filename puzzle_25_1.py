@@ -17,10 +17,10 @@ def simulation():
     while True:
         matrix_copy = deepcopy(matrix)
         
-        matrix, cucumbers_to_replace = check_east(matrix)
+        matrix, cucumbers_to_replace = check_east_cucumbers_moves(matrix)
         matrix = replace_cucumbers(cucumbers_to_replace, "east", matrix)
 
-        matrix, cucumbers_to_replace = check_south(matrix)
+        matrix, cucumbers_to_replace = check_south_cucumbers_moves(matrix)
         matrix = replace_cucumbers(cucumbers_to_replace, "south", matrix)
         
         
@@ -36,7 +36,7 @@ def simulation():
                 file.write(str(x) + '\n')
 
 
-def check_east(matrix):
+def check_east_cucumbers_moves(matrix):
     cucumbers_to_replace = []
     for row_index,row in enumerate(matrix):
         for index, cucumber in enumerate(row):
@@ -57,7 +57,7 @@ def check_east(matrix):
 
     return matrix, cucumbers_to_replace
 
-def check_south(matrix):
+def check_south_cucumbers_moves(matrix):
     cucumbers_to_replace = []
     for row_index,row in enumerate(matrix):
         
